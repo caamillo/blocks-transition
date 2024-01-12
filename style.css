@@ -1,0 +1,107 @@
+.card-wrapper, .card-content { border-radius: 20px; }
+
+[data-transform="true"] .more {
+    color: rgb(71 85 105);
+} 
+
+.card-transform-rectangle-w {
+    width: 50% !important;
+    height: calc(100% - 20px) !important;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+
+.card-transform-rectangle-h {
+    width: calc(100% - 20px) !important;
+    margin-top: 10px;
+    height: 50% !important;
+    border-radius: 10px;
+}
+
+.card-transform-square {
+    width: calc(100% - 20px) !important;
+    margin-top: 10px;
+    height: 70% !important;
+    border-radius: 10px;
+}
+
+.overlay[data-show="false"] {
+    pointer-events: none;
+}
+
+.overlay[data-show="true"] {
+    pointer-events: all;
+    backdrop-filter: blur(12px);
+    background-color: #00000090;
+}
+
+.modal-wrap .modal-content[data-collapsed="false"] .modal-body {
+    height: 0px;
+}
+
+.modal-wrap[data-invisible="true"] {
+    background-color: transparent;
+}
+
+[data-domain] {
+    font-size: 2.25rem;
+    transform-origin: bottom left;
+}
+
+.card-wrapper .card-content[data-show="false"] {
+    opacity: 0;
+}
+
+.card-wrapper .card-content {
+    transition: all .3s ease-in-out, opacity 1ms;
+}
+
+[data-domain="true"] {
+    transform: scale(.56);
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.modal-wrap .modal-content .modal-header [data-domain] {
+    transition: transform .3s ease-in-out;
+}
+
+.modal-wrap .modal-content[data-collapsed="true"] .modal-header *[data-domain] {
+    transform: translateY(20px) scale(1);
+    font-weight: 500;
+}
+
+.modal-wrap .modal-content[data-collapsed="true"] .modal-header *[data-available] {
+    transform: translateX(-100%);
+}
+
+.toast-wrapper[data-show="false"] {
+    transform: translateY(150%);
+}
+
+.modal-wrap .modal-content[data-collapsed="true"] [data-long="true"] {
+    --scale: 1;
+    --offset-y: 20px;
+    animation: longScrollAnim var(--scroll-time) alternate infinite linear;
+}
+
+[data-long="true"] {
+    --scale: 1;
+    --offset-y: 0px;
+    animation: longScrollAnim var(--scroll-time) alternate infinite linear;
+}
+
+[data-domain="true"][data-long="true"] {
+    --scale: .56;
+    --offset-y: 0px;
+    animation: longScrollAnim var(--scroll-time) alternate infinite linear;
+}
+
+@keyframes longScrollAnim {
+    from {
+        transform: translate(0, var(--offset-y)) scale(var(--scale));
+    }
+    to {
+        transform: translate(var(--scroll-span), var(--offset-y)) scale(var(--scale));
+    }
+}
